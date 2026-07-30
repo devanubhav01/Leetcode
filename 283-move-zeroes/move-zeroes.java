@@ -1,33 +1,22 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-       int n = nums.length;
-
-        int j = -1;
-
-        // Find first zero
-        for (int i = 0; i < n; i++) {
-            if (nums[i] == 0) {
-                j = i;
-                break;
-            }
-        }
-
-        // No zero present
-        if (j == -1) {
-            return;
-        }
-
-        for (int i = j + 1; i < n; i++) {
-
+        ArrayList<Integer> arr = new ArrayList<>(); // FIX: empty list, Arrays.asnums hata diya
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-
-                j++;
+                arr.add(nums[i]);
             }
         }
+        int[] result = new int[nums.length];
 
+        for (int k = 0; k < nums.length; k++) {
+            if (k < arr.size()) {
+                result[k] = arr.get(k);
+            } else {
+                result[k] = 0;
+            }
+        }
+         for (int m = 0; m < nums.length; m++) {
+            nums[m] = result[m];
+        }
     }
 }
