@@ -16,13 +16,10 @@ class Solution {
          
          while(left<right){
          long sum=(long)nums[i]+nums[j]+nums[left]+nums[right];
-            List<Integer> z=new ArrayList<>();
+            
             if(sum==target){
-            z.add(nums[i]);
-            z.add(nums[j]);
-            z.add(nums[left]);
-            z.add(nums[right]);
-            arr.add(z);
+           arr.add(Arrays.asList(nums[i], nums[j],
+                                              nums[left], nums[right]));
             while(left<right&&nums[left]==nums[left+1]){
                 left++;
             }
